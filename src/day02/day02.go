@@ -25,3 +25,20 @@ func add(first, second int) int {
 func multiply(first, second int) int {
 	return first * second
 }
+
+func findNounAndVerbForOutputInIntCode(output int, state []int) (noun int, verb int) {
+	nounPos := 1
+	verbPos := 2
+	tmpState := make([]int, len(state))
+	for noun := 0; noun < 100; noun++ {
+		for verb := 0; verb < 100; verb++ {
+			copy(tmpState, state)
+			tmpState[nounPos] = noun
+			tmpState[verbPos] = verb
+			if calculateIntCode(tmpState)[0] == output {
+				return noun, verb
+			}
+		}
+	}
+	return 0, 0
+}

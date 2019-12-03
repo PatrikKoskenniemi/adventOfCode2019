@@ -29,6 +29,18 @@ func TestCalculateIntCodeFileData(t *testing.T) {
 	fmt.Println(finalState[0])
 }
 
+func TestFindNounAndVerbForOutputInIntCodeFileData(t *testing.T) {
+
+	inputFile, err := os.Open("./input.txt")
+	check(err)
+	state := fileparser.ParseCommaSeparatedStringToIntList(inputFile)
+	_ = inputFile.Close()
+	output := 19690720
+	noun, verb := findNounAndVerbForOutputInIntCode(output, state)
+
+	fmt.Println(100*noun + verb)
+}
+
 func check(e error) {
 	if e != nil {
 		panic(e)
