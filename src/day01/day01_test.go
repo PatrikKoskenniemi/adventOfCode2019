@@ -20,7 +20,7 @@ func TestCalculateFuelFileData(t *testing.T) {
 
 	inputFile, err := os.Open("./input.txt")
 	check(err)
-	numbers := fileparser.ParseStringFileToIntList(inputFile)
+	numbers := fileparser.ParseOneStringPerRowToIntList(inputFile)
 	_ = inputFile.Close()
 	total := 0
 	for _, number := range numbers {
@@ -40,7 +40,7 @@ func TestCalculateFuelInclFuelWeightFileData(t *testing.T) {
 
 	inputFile, err := os.Open("./input.txt")
 	check(err)
-	numbers := fileparser.ParseStringFileToIntList(inputFile)
+	numbers := fileparser.ParseOneStringPerRowToIntList(inputFile)
 	_ = inputFile.Close()
 	total := 0
 	for _, number := range numbers {
