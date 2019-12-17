@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func ParseOneStringPerRowToIntList(file *os.File) []int {
@@ -17,7 +18,6 @@ func ParseOneStringPerRowToIntList(file *os.File) []int {
 	}
 
 	return numbers
-
 }
 
 func ParseCommaSeparatedStringToIntList(file *os.File) []int {
@@ -56,4 +56,14 @@ func ParseCommaSeparatedStringToIntList(file *os.File) []int {
 
 	return numbers
 
+}
+
+func ParseCommaSeparatedStringToTwoStringLists(file *os.File) ([]string, []string) {
+	fileScanner := bufio.NewScanner(file)
+	fileScanner.Scan()
+	firstRow := fileScanner.Text()
+	fileScanner.Scan()
+	secondRow := fileScanner.Text()
+
+	return strings.Split(firstRow, ","), strings.Split(secondRow, ",")
 }
