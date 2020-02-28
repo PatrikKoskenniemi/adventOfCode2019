@@ -26,3 +26,18 @@ func TestFindNumberOfPasswords(t *testing.T) {
 	numberOfPasswords := findNumberOfPasswords(245182, 790572)
 	fmt.Println(numberOfPasswords)
 }
+
+func TestFindNumberOfPasswordsNotPartOfLargerGroup (t *testing.T) {
+	assert.Equal(t, 1, findNumberOfPasswords(123444,123445))
+}
+
+func TestFindNumberOfPasswordsNotPartOfLargerGroup2 (t *testing.T) {
+	assert.Equal(t, 1, findNumberOfPasswords(111122,111122))
+}
+
+func TestFindNumberOfPasswordsNotPartOfLargerGroup3 (t *testing.T) {
+	assert.Equal(t, 1, findNumberOfPasswords(112223,112223))
+}
+func TestFindNumberOfPasswordsNotPartOfLargerGroup4 (t *testing.T) {
+	assert.Equal(t, 0, findNumberOfPasswords(789999,789999))
+}
